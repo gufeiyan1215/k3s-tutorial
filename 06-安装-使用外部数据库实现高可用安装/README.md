@@ -53,7 +53,7 @@ docker run --name some-mysql --restart=unless-stopped -p 3306:3306 -e MYSQL_ROOT
 curl -sfL https://get.k3s.io | sh -s - server \
   --datastore-endpoint="mysql://root:password@tcp(172.31.10.251:3306)/k3s" --tls-san 172.31.13.97
 ```
-
+#k3s-server-2节点要加参数 --token= 
 > --tls-san：在 TLS 证书中添加其他主机名或 IP 作为主题备用名称，本例为 LB 的 IP
 > 否则通过 LB IP 连接 k3s api 时将会报错：`Unable to connect to the server: x509: certificate is valid for 10.43.0.1, 127.0.0.1, 172.31.2.134, 172.31.2.42, not 172.31.13.97`
 
